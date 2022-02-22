@@ -13,8 +13,8 @@ int main() {
     cout << "C++ Example\n";
     int column = 0;
     GoFiterator* iter = ibuf.createIterator();
-    for(iter->first(); !iter->isDone(); iter->next()) {
-        if(column >= 10) {
+    for (iter->first(); !iter->isDone(); iter->next()) {
+        if (column >= 10) {
             cout << endl;;
             column = 1;
         } else

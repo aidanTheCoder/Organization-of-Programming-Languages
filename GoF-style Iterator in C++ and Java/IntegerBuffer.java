@@ -7,7 +7,7 @@ public class IntegerBuffer {
     }
     
     public boolean add(int value) {
-        if(dataLength < data.length) {
+        if (dataLength < data.length) {
             data[dataLength] = value;
             ++dataLength;
             return true;
@@ -17,8 +17,8 @@ public class IntegerBuffer {
     
     public int add(int values[]) {
         int count = 0;
-        for(int i = 0; i < values.length; ++i)
-            if(add(values[i]))
+        for (int i = 0; i < values.length; ++i)
+            if (add(values[i]))
                 ++count;
         return count;
     }
@@ -35,16 +35,16 @@ public class IntegerBuffer {
         }
 
         public void next() {
-            if(!isDone())
+            if (!isDone())
                 ++cursor;
         }
     
         public boolean isDone() {
-            return cursor == dataLength;
+            return cursor >= dataLength;
         }
 
         public int currentItem() {
-            if(isDone())
+            if (isDone())
                 return 0;
             else
                 return data[cursor];
@@ -60,8 +60,8 @@ public class IntegerBuffer {
         System.out.println("Java");
         int column = 0;
         GoFiterator iter = ibuf.createIterator();
-        for(iter.first(); !iter.isDone(); iter.next()) {
-            if(column >= 10) {
+        for (iter.first(); !iter.isDone(); iter.next()) {
+            if (column >= 10) {
                 System.out.println();
                 column = 1;
             } else 

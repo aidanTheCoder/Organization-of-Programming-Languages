@@ -1,7 +1,7 @@
 #include "IntegerBuffer.h"
 
 bool IntegerBuffer::add(int value) {
-    if(dataLength < CAPACITY) {
+    if (dataLength < CAPACITY) {
         data[dataLength] = value;
         ++dataLength;
         return true;
@@ -11,8 +11,8 @@ bool IntegerBuffer::add(int value) {
 
 int IntegerBuffer::add(int values[], int numValues) {
     int count = 0;
-    for(int i = 0; i < numValues; ++i)
-        if(add(values[i]))
+    for (int i = 0; i < numValues; ++i)
+        if (add(values[i]))
             ++count;
     return count;
 }
@@ -26,16 +26,16 @@ void IntegerBuffer::IntegerBufferIterator::first() {
 }
 
 void IntegerBuffer::IntegerBufferIterator::next() {
-    if(!isDone())
+    if (!isDone())
         ++cursor;
 }
 
 bool IntegerBuffer::IntegerBufferIterator::isDone() {
-    return cursor == collection->dataLength;
+    return cursor >= collection->dataLength;
 }
 
 int IntegerBuffer::IntegerBufferIterator::currentItem() {
-    if(isDone())
+    if (isDone())
         return 0;
     else
         return collection->data[cursor];
